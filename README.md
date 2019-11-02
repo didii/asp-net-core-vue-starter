@@ -1,4 +1,6 @@
-﻿# ASP.NET Core Vue Starter
+﻿**Note:** This repository is a fork from [SoftwareAteliers/asp-net-core-vue-starter](https://github.com/SoftwareAteliers/asp-net-core-vue-starter) and has only light modifications to suit my own needs.
+
+# ASP.NET Core Vue Starter
 
 The repository contains an ASP.&#8203;NET Core + Vue.js starter template. The template runs on ASP.NET Core 3.0 and is created by Vue CLI 4.0 with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
@@ -48,7 +50,7 @@ Original article how to create the starter template is available [here](https://
 * [.NET Core](https://www.microsoft.com/net/download/windows) >= 3.0
 * [NodeJS](https://nodejs.org/) >= 8.9
 * [Vue CLI](https://cli.vuejs.org/) >= 4.0
-* Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/)), or VS 2017/19
+* Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/) and VS 2019)
 
 ---
 
@@ -58,13 +60,7 @@ There are two ways how to set up the project: one for people who want to create 
 
 ## Clone the starter with default configuration
 
-* Clone this repository `git clone https://github.com/SoftwareAteliers/asp-net-core-vue-starter`
-
-or you can use .NET Core CLI templates:
-
-* Install the template from NuGet repository: `dotnet new -i SoftwareAteliers.AspNetCoreVueStarter`
-
-* Initialize the project: `dotnet new vue -o MyProject`
+* Clone this repository `git clone https://github.com/didii/asp-net-core-vue-starter`
 
 ## (Optional) Scaffold Vue.js app with custom configuration
 
@@ -81,27 +77,36 @@ Now application is ready to run.
 
 ## Run the application
 
-You have two choices when it comes to how you prefer to run the app. You can either use the command line or the build-in run command.
+First time setup:
+Run `npm install` in the `ClientApp` folder.
 
-### 1. Using the command line
+Then:
+* Run the Vue app using `npm run serve` from the `ClientApp` folder
+* Run the .NET application using `dotnet run` in the root folder or hit `F5` or `Ctrl`+`F5` in Visual Studio
 
-* Run the .NET application using `dotnet run`
+Browse to [http://localhost:65025](http://localhost:65025) for ASP.&#8203;NET Core + Vue app or browse to [http://localhost:8080](http://localhost:8080) for Vue app only.
 
-### 2. Using the built-in run command
+---
 
-* Run the application in VSCode or Visual Studio 2017 by hitting `F5`
+## Debugging in Visual Studio Code + Chrome
 
-> It will take some time during the first run to download all client side dependencies.
+This has been setup for you with Chrome. What you will need to install yourself:
 
-## View your application running
+* Visual Studio Code, obviously
+  * Extension: [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 
-Browse to [http://localhost:5000](http://localhost:5000) for ASP.&#8203;NET Core + Vue app or browse to [http://localhost:8080](http://localhost:8080) for Vue app only.
+Then follow the following steps:
 
-![Application screenshot](./screenshot.png)
+1. Run both the vue app and asp.net core app
+2. Press `F5` in Visual Studio Code and select the Launch profile
 
-## Recommended plugin for debugging Vue
+For improved debugging experience I advice you to always start chrome with a debugger port open. This way you can attach Visual Studio Code whenever necessary instead of needing to rebuild your entire application state from scratch again.
 
-* Get Chrome DevTools for Vue.js [here](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+1. Run both the vue app and ASP.NET core app
+2. Open Chrome using the shortcut
+   * This simply runs `chrome.exe --remote-debugging-port=9222 http://localhost:65025`
+3. In Visual Studio Code, choose the attach profile for debugging
+4. Press `F5` and it should immediately attach to the existing window
 
 ---
 
