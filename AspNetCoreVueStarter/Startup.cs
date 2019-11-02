@@ -51,7 +51,9 @@ namespace AspNetCoreVueStarter {
             });
 
             app.UseSpa(builder => {
-                builder.UseProxyToSpaDevelopmentServer("http://localhost:8080/");
+                if (env.IsDevelopment()) {
+                    builder.UseProxyToSpaDevelopmentServer("http://localhost:8080/");
+                }
             });
         }
     }
