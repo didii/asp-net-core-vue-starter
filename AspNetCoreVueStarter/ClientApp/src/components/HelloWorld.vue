@@ -40,10 +40,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class HelloWorld extends Vue {
   @Prop()
   private msg!: string;
-
-  private click() {
-      console.log('test');
-  }
 }
 </script>
 
