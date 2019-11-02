@@ -62,4 +62,8 @@
     </ItemGroup>
   </Target>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="" />
+  </Target>
+
 </Project>
