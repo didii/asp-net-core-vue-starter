@@ -6,10 +6,14 @@ Vue.use(Vuex);
 
 @Module({name: 'default'})
 export default class DefaultModule extends VuexModule {
-    public counter: number = 0;
+    private _counter: number = 0;
+
+    public get counter(): number {
+        return this._counter;
+    }
 
     @Mutation
     public increment(): void {
-        this.counter++;
+        this._counter++;
     }
 }
