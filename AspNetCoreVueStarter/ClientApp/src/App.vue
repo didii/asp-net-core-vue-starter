@@ -1,29 +1,84 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <v-app id="inspire">
+        <v-navigation-drawer v-model="drawer" app clipped>
+            <v-list dense>
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-home</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Home</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item link>
+                    <v-list-item-action>
+                        <v-icon>mdi-contact-mail</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Contact</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-app-bar app color="indigo" dark clipped-left>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+            <v-toolbar-title>Application</v-toolbar-title>
+        </v-app-bar>
+
+        <v-content>
+            <v-container class="fill-height" fluid>
+                <v-row align="center" justify="center">
+                    <v-col class="text-center">
+                        <v-tooltip left>
+                            <template v-slot:activator="{ on }">
+                                <v-btn
+                                    :href="source"
+                                    icon
+                                    large
+                                    target="_blank"
+                                    v-on="on"
+                                >
+                                    <v-icon large>mdi-code-tags</v-icon>
+                                </v-btn>
+                            </template>
+                            <span>Source</span>
+                        </v-tooltip>
+
+                        <v-tooltip right>
+                            <template v-slot:activator="{ on }">
+                                <v-btn
+                                    icon
+                                    large
+                                    href="https://codepen.io/johnjleider/pen/zgxeLQ"
+                                    target="_blank"
+                                    v-on="on"
+                                >
+                                    <v-icon large>mdi-codepen</v-icon>
+                                </v-btn>
+                            </template>
+                            <span>Codepen</span>
+                        </v-tooltip>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-content>
+        <v-footer color="indigo" app>
+            <span class="white--text">&copy; 2019</span>
+        </v-footer>
+    </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+    components: {
+        HelloWorld,
+    },
 })
-export default class App extends Vue {}
-</script>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+export default class App extends Vue {
+    private drawer: boolean | null = null;
 }
-</style>
+</script>

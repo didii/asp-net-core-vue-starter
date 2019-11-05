@@ -1,5 +1,7 @@
 module.exports = {
     configureWebpack: {
-        devtool: 'source-map'
-    }
-}
+        devtool: 'source-map',
+    },
+    outputDir: 'wwwroot',
+    transpileDependencies: ['vuetify'],
+};
