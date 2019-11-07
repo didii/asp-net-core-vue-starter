@@ -1,14 +1,15 @@
-﻿**Note:** This repository is a fork from [SoftwareAteliers/asp-net-core-vue-starter](https://github.com/SoftwareAteliers/asp-net-core-vue-starter) and has only light modifications to suit my own needs.
+﻿# ASP.NET Core Vue Starter
 
-# ASP.NET Core Vue Starter
+> This repository is a fork from [SoftwareAteliers/asp-net-core-vue-starter](https://github.com/SoftwareAteliers/asp-net-core-vue-starter) so I could easily create a template that suits my own needs.
+> If you don't like my setup, make sure to check them out too.
+> Below, the differences are described.
 
-The repository contains an ASP.&#8203;NET Core + Vue.js starter template. The template runs on ASP.NET Core 3.0 and is created by Vue CLI 4.0 with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
+The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.0) + [Vue.js](https://vuejs.org/) starter template. The template runs on [ASP.NET Core 3.0](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.0?view=aspnetcore-3.0) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
-Original article how to create the starter template is available [here](https://medium.com/software-ateliers/asp-net-core-vue-template-with-custom-configuration-using-cli-3-0-8288e18ae80b).
+It has as of 07/11/2019 the latest packages:
+> ![npm-check result](npm-check.png)
 
-[![Nuget](https://img.shields.io/nuget/v/SoftwareAteliers.AspNetCoreVueStarter.svg?style=flat&color=2196f3)](https://www.nuget.org/packages/SoftwareAteliers.AspNetCoreVueStarter/)
-
-> For ASP.NET Core 2.2 template use [release v1.1.0](https://github.com/SoftwareAteliers/asp-net-core-vue-starter/releases/tag/1.1.0)
+*For ASP.NET Core 2.2 template use [didii/AspNetCore.VueTs](https://github.com/didii/AspNetCore.VueTs) instead.*
 
 ---
 
@@ -25,23 +26,24 @@ Original article how to create the starter template is available [here](https://
 * Code-splitting
 * Tree-shaking
 * ES2017 transpilation
-* Long term caching and so on
+* Long term caching
+* Easy debugging in Chrome and Visual Studio Code
+* ...
 
 ## Used Technology Stack
 
 **ASP.NET Core 3.0:**
 
 * Web.API
-* Vue CLI and JavaScript Services middlewares to integrate with client app
+* SPA services to host client app
 
 **Vue.js with CLI 4.0 supporting optional integrations:**
 
-* TypeScript
+* TypeScript + helper libraries for more type-safety
 * Progressive Web App
 * Vue Router & Vuex (State Store)
-* Linting, unit testing, E2E testing
-* 3rd party component frameworks (Vuetify, Vue Bootstrap etc.)
-* publish your personal/enterprise plugin and so on...
+* Linting, unit testing
+* ...
 
 *For a full feature list, I suggest you to read the [official CLI release statement](https://medium.com/the-vue-point/vue-cli-3-0-is-here-c42bebe28fbb) by Evan You.*
 
@@ -54,59 +56,91 @@ Original article how to create the starter template is available [here](https://
 
 ---
 
-## Getting started
+# Getting started
 
 There are two ways how to set up the project: one for people who want to create their own template and choose custom integrations and the other for developers who want to start with no configuration.
 
 ## Clone the starter with default configuration
 
-* Clone this repository `git clone https://github.com/didii/asp-net-core-vue-starter`
+1. Clone this repository:
+   `git clone https://github.com/didii/asp-net-core-vue-starter`
+2. In the `AspNetCoreVueStarter\ClientApp` folder, run `npm install`
 
 ## (Optional) Scaffold Vue.js app with custom configuration
 
 If you prefer to overwrite default Vue client app with custom settings, take the following steps:
 
-* **Remove all the contents** of the folder /ClientApp
-* Create a new Vue project by using Vue CLI: `vue create client-app` OR by using CLI graphical interface running `vue ui`
-
-> Unfortunately Vue CLI does not allow us to set a project name by C# standards using Upper Camel Case (Pascal Case) naming convention, so let's initiate app inside of client-app folder and then move the content to ClientApp.
-
-* **Move all the contents from the new folder /client-app to /ClientApp.**
-
-Now application is ready to run.
+1. **Remove all the contents** of the folder /ClientApp
+2. Create a new Vue project by using Vue CLI: `vue create client-app` OR by using CLI graphical interface running `vue ui`
+3. **Move all the contents from the new folder /client-app to /ClientApp.**
 
 ## Run the application
 
-First time setup:
-Run `npm install` in the `ClientApp` folder.
-
-Then:
-* Run the Vue app using `npm run serve` from the `ClientApp` folder
-* Run the .NET application using `dotnet run` in the root folder or hit `F5` or `Ctrl`+`F5` in Visual Studio
+* Run the Vue app using `npm run serve` from the `AspNetCoreVueStarter\ClientApp` folder
+* Run the .NET application using `dotnet run` in the root folder or hit <kbd>F5</kbd> or <kbd>Ctrl+F5</kbd> in Visual Studio
 
 Browse to [http://localhost:65025](http://localhost:65025) for ASP.&#8203;NET Core + Vue app or browse to [http://localhost:8080](http://localhost:8080) for Vue app only.
 
----
+## Debug the application
 
-## Debugging in Visual Studio Code + Chrome
+### In Chrome
 
-This has been setup for you with Chrome. What you will need to install yourself:
+In the sources tab in Chrome, press <kbd>Ctrl+P</kbd> and start searching for `Counter.vue`.
+The first file that pops up should be `webpack:///.src/views/Counter.vue` which is the file only containing the typescript code.
+All other files with the hashes are put in `webpack-generated:///` and are generated files which are of no use while debugging.
 
-* Visual Studio Code, obviously
-  * Extension: [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+### In Visual Studio Code + Chrome
 
-Then follow the following steps:
+#### Prerequisites:
 
-1. Run both the vue app and asp.net core app
-2. Press `F5` in Visual Studio Code and select the Launch profile
+* Visual Studio Code extension: [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 
-For improved debugging experience I advice you to always start chrome with a debugger port open. This way you can attach Visual Studio Code whenever necessary instead of needing to rebuild your entire application state from scratch again.
+#### Launching Chrome
 
-1. Run both the vue app and ASP.NET core app
-2. Open Chrome using the shortcut
-   * This simply runs `chrome.exe --remote-debugging-port=9222 http://localhost:65025`
-3. In Visual Studio Code, choose the attach profile for debugging
-4. Press `F5` and it should immediately attach to the existing window
+1. Run both the vue app and asp.net core app (see Run the application)
+2. Press <kbd>F5</kbd> in Visual Studio Code and select the Chrome environment
+   * If a folder `.vscode/launch.json` already exists, just open that file instead.
+3. Use the following profile:
+   ```json
+    {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome",
+        "url": "http://localhost:65025",
+        "webRoot": "${workspaceFolder}/src",
+        "sourceMapPathOverrides": {
+            "webpack:///./src/*": "${webRoot}/*"
+        }
+    }
+    ```
+4. Press <kbd>F5</kbd> and select the Launch Chrome profile if necessary
+
+#### Attaching Chrome
+
+When you open Chrome, it needs to be opened with a debugger port open. 
+Only then you can attach.
+You can do this by running `chrome.exe --remote-debugging-port=9222 http://localhost:65025` or by using the chrome shortcut in the root folder.
+
+When Chrome and both applications are running:
+
+1. In Visual Studio Code, choose the attach profile for debugging
+2. Press <kbd>F5</kbd> in Visual Studio Code and select the Chrome environment
+   * If a folder `.vscode/launch.json` already exists, just open that file instead.
+3. Use the following profile:
+   ```json
+    {
+        "type": "chrome",
+        "request": "attach",
+        "name": "Attach Chrome",
+        "urlFilter": "http://localhost:65025*",
+        "port": 9222,
+        "webRoot": "${workspaceFolder}/src",
+        "sourceMapPathOverrides": {
+            "webpack:///./src/*": "${webRoot}/*"
+        }
+    }
+    ```
+4. Press <kbd>F5</kbd> and select the Attach Chrome profile if necessary
 
 ---
 
@@ -116,14 +150,34 @@ Want to file a bug, contribute some code, or improve documentation? Excellent! P
 
 ---
 
-## Contributors
+## Thanks
 
-Special thanks to everyone who helped and contributed to this project!
+This project is a fork from [SoftwareAteliers/asp-net-core-vue-starter](https://github.com/SoftwareAteliers/asp-net-core-vue-starter) which I used as a base.
+So huge thanks to the SoftwareAteliers to get me started.
 
-* [@jdebarochez](https://github.com/jdebarochez)
-* [@arisliang](https://github.com/arisliang)
-* [@dotnetshadow](https://github.com/dotnetshadow)
-* [@NickStees](https://github.com/NickStees)
+Further resources I used:
+
+* [Debugging in VS Code](https://vuejs.org/v2/cookbook/debugging-in-vscode.html)
+* [Source maps guide](https://www.mistergoodcat.com/post/the-joy-that-is-source-maps-with-vuejs-and-typescript) for easier debugging in Chrome by Peter Kuhn
+
+---
+
+## Changes to SoftwareAteliers repo
+
+The changes are for more fine-grained control and less dependencies to start out with.
+
+* Moved the project to a subfolder of the solution
+  * To allow proper structure with multiple projects
+* Used `UseSpa` instead of `MapToVueCliProxy`
+  * Allows more control of the FE app by manually starting it
+  * Allows better control, especially when using IIS (non-express)
+* Recreated the Vue app from scratch
+  * Removed Vuetify
+    * This dependency is too hard to my likings
+  * Removed fonts
+  * Simplified store
+    * Added `vuex-module-decorators` for type-safety and class-style modules
+  * Added `vue.config.js` to create source-maps for easy debugging
 
 ---
 
@@ -132,7 +186,3 @@ Special thanks to everyone who helped and contributed to this project!
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://mit-license.org/)
 
 Copyright &copy; 2018 - 2019 [Software Ateliers](https://github.com/SoftwareAteliers)
-
-## Where to find me
-
-Medium: [Software Ateliers](https://medium.com/software-ateliers) | Twitter: [@SAteliers](https://twitter.com/SAteliers)
