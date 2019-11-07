@@ -142,6 +142,32 @@ When Chrome and both applications are running:
     ```
 4. Press <kbd>F5</kbd> and select the Attach Chrome profile if necessary
 
+## Publish the application
+
+Publishing should also be easy enough.
+To test it out on Windows, you could use IIS.
+You can take these steps to make it work in IIS locally, but the idea should be very similar when using other hosting services.
+
+1. Go to the `vue.config` file and change the value of `publicPath` to `/AspNetCoreVueStarter/`
+2. In Visual Studio, right click the project and click Publish
+3. Select the Folder profile, check the path and then click Create
+4. Open IIS Manager
+5. Right click the Default Web Site and select Add Application
+6. Set the following values:
+   * Alias: `AspNetCoreVueStarter`
+   * Choose the Default App pool
+   * Set the physical path to the publish path
+7. In your browser, navigate to http://localhost/AspNetCoreVueStarter and your site should be displayed!
+
+Note that unless you use IIS to develop, it's not a good idea to keep the production path in your `vue.config` as default setting since this will also influence the path vue is hosted at in development.
+You'll most likely want to use something like
+
+```js
+process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/'
+```
+
+See [the official vue guide](https://cli.vuejs.org/config/#publicpath) for more info.
+
 ---
 
 ## Issues and Contribution
