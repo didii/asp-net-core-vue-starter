@@ -3,7 +3,7 @@
         <h1>Counter</h1>
         <p>Clicking this button will increment the counter which is stored in the DefaultModule store.</p>
         <p>Count: {{this.defaultModule.counter}}</p>
-        <v-btn @click="increment">Increment</v-btn>
+        <button @click="increment">Increment</button>
     </div>
 </template>
 
