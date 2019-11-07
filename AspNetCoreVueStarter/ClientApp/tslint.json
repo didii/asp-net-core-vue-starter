@@ -15,8 +15,12 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [true, "single"],
-    "naming-convention": [
-      { "type": "variable", "modifiers": "private", "format": "camelCase", "leadingUnderscore": "require"}
-    ]
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore"
+      ]
+    }
   }
 }
