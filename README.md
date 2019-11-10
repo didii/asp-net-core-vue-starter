@@ -4,7 +4,8 @@
 > If you don't like my setup, make sure to check them out too.
 > Below, the differences are described.
 
-The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.0) + [Vue.js](https://vuejs.org/) starter template. The template runs on [ASP.NET Core 3.0](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.0?view=aspnetcore-3.0) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
+The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.0) + [Vue.js](https://vuejs.org/) starter template.
+The template runs on [ASP.NET Core 3.0](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.0?view=aspnetcore-3.0) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
 It has as of 07/11/2019 the latest packages:
 > ![npm-check result](npm-check.png)
@@ -39,7 +40,7 @@ It has as of 07/11/2019 the latest packages:
 
 **Vue.js with CLI 4.0 supporting optional integrations:**
 
-* TypeScript + helper libraries for more type-safety
+* TypeScript + helper libraries for even more type-safety
 * Progressive Web App
 * Vue Router & Vuex (State Store)
 * Linting, unit testing
@@ -172,7 +173,9 @@ See [the official vue guide](https://cli.vuejs.org/config/#publicpath) for more 
 
 ## Issues and Contribution
 
-Want to file a bug, contribute some code, or improve documentation? Excellent! Please make sure to check existing issues before opening a new one.
+Want to file a bug, contribute some code, improve documentation or contest my design ideas?
+Excellent!
+Please make sure to check existing issues before opening a new one.
 
 ---
 
