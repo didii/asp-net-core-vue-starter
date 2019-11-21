@@ -10,6 +10,8 @@ The template runs on [ASP.NET Core 3.0](https://docs.microsoft.com/en-us/aspnet/
 It has as of 07/11/2019 the latest packages:
 > ![npm-check result](npm-check.png)
 
+***Note:** You can use any frontend framework you like with this starter.*
+
 *For ASP.NET Core 2.2 template use [didii/AspNetCore.VueTs](https://github.com/didii/AspNetCore.VueTs) instead.*
 
 ---
