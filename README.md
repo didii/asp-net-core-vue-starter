@@ -4,8 +4,8 @@
 > If you don't like my setup, make sure to check them out too.
 > Below, the differences are described.
 
-The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.0) + [Vue.js](https://vuejs.org/) starter template.
-The template runs on [ASP.NET Core 3.0](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.0?view=aspnetcore-3.0) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
+The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.1) + [Vue.js](https://vuejs.org/) starter template.
+The template runs on [ASP.NET Core 3.1](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.1) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
 It has as of 07/11/2019 the latest packages:
 > ![npm-check result](npm-check.png)
