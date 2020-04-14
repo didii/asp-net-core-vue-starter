@@ -7,7 +7,7 @@
 The repository contains an [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet-core/3.1) + [Vue.js](https://vuejs.org/) starter template.
 The template runs on [ASP.NET Core 3.1](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.1) and is created by [Vue CLI 4.0](https://cli.vuejs.org/) with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
-It has as of 07/11/2019 the latest packages:
+It has as of 2020-04-14 the latest packages:
 > ![npm-check result](npm-check.png)
 
 ***Note:** You can use any frontend framework you like with this starter.*
@@ -35,7 +35,7 @@ It has as of 07/11/2019 the latest packages:
 
 ## Used Technology Stack
 
-**ASP.NET Core 3.0:**
+**ASP.NET Core 3.1:**
 
 * Web.API
 * SPA services to host client app
@@ -52,7 +52,7 @@ It has as of 07/11/2019 the latest packages:
 
 ## Prerequisites
 
-* [.NET Core](https://www.microsoft.com/net/download/windows) >= 3.0
+* [.NET Core](https://www.microsoft.com/net/download/windows) >= 3.1
 * [NodeJS](https://nodejs.org/) >= 8.9
 * [Vue CLI](https://cli.vuejs.org/) >= 4.0
 * Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/) and VS 2019)
